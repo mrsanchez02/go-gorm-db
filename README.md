@@ -38,3 +38,15 @@
     fmt.Printf("%d - %s\n", product.ID, product.Name)
   }
   ```
+
+## Query one by id
+
+  ```go
+  driver := storage.MySQL
+  storage.New(driver)
+  
+  myProduct := model.Product{}
+  
+  storage.DB().First(&myProduct, 1)
+  fmt.Println(myProduct)
+  ```
