@@ -1,7 +1,8 @@
 package main
 
-import "fmt"
+import "github.com/mrsanchez02/go-gorm-db/storage"
 
 func main() {
-	fmt.Println("It's working dude 😎!")
+	driver := storage.MySQL
+	storage.New(driver)
 }
