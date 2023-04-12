@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  MySQL:
+    image: mysql:latest
+    restart: always
+    container_name: "gorm_mysql_db"
+    environment:
+      - MYSQL_DATABASE=gormdb
+      - MYSQL_ROOT_PASSWORD=leandrosc
+      - MYSQL_USER=leandrosc
+      - MYSQL_PASSWORD=leandrosc
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+  PostGreSQL:
+    image: "postgres"
+    container_name: "gorm_postgre_db"
+    environment:
+      - POSTGRES_USER=leandrosc
+      - POSTGRES_PASSWORD=leandrosc
+      - POSTGRES_DB=gormdb
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
