@@ -88,3 +88,19 @@
   storage.DB().Unscoped().Delete(&myProduct)
   ```
 
+## Transactions
+
+  ```go
+  driver := storage.Postgres
+  storage.New(driver)
+  
+  invoice := model.InvoiceHeader{
+    Client: "Eddy Abreu",
+    InvoiceItems: []model.InvoiceItem{
+      {ProductID: 1},
+      {ProductID: 2},
+    },
+  }
+  
+  storage.DB().Create(&invoice)
+  ```

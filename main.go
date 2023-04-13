@@ -9,16 +9,13 @@ func main() {
 	driver := storage.Postgres
 	storage.New(driver)
 
-	// Delete Soft
-	// myProduct := model.Product{}
-	// myProduct.ID = 5
+	invoice := model.InvoiceHeader{
+		Client: "Eddy Abreu",
+		InvoiceItems: []model.InvoiceItem{
+			{ProductID: 1},
+			{ProductID: 2},
+		},
+	}
 
-	// storage.DB().Delete(&myProduct)
-
-	// Delete Permanent
-	myProduct := model.Product{}
-	myProduct.ID = 5
-
-	storage.DB().Unscoped().Delete(&myProduct)
-
+	storage.DB().Create(&invoice)
 }
