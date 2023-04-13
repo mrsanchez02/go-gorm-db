@@ -9,10 +9,16 @@ func main() {
 	driver := storage.Postgres
 	storage.New(driver)
 
-	myProduct := model.Product{}
-	myProduct.ID = 3
+	// Delete Soft
+	// myProduct := model.Product{}
+	// myProduct.ID = 5
 
-	storage.DB().Model(&myProduct).Updates(
-		model.Product{Name: "Curso de Java", Price: 120},
-	)
+	// storage.DB().Delete(&myProduct)
+
+	// Delete Permanent
+	myProduct := model.Product{}
+	myProduct.ID = 5
+
+	storage.DB().Unscoped().Delete(&myProduct)
+
 }

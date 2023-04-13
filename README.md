@@ -64,3 +64,27 @@
     model.Product{Name: "Curso de Java", Price: 120},
   )
   ```
+## Delete Soft
+
+  ```go
+  driver := storage.Postgres
+  storage.New(driver)
+  
+  myProduct := model.Product{}
+  myProduct.ID = 5
+  
+  storage.DB().Delete(&myProduct)
+  ```
+
+## Delete Permanent
+
+  ```go
+  driver := storage.Postgres
+  storage.New(driver)
+  
+  myProduct := model.Product{}
+  myProduct.ID = 5
+  
+  storage.DB().Unscoped().Delete(&myProduct)
+  ```
+
