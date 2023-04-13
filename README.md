@@ -50,3 +50,17 @@
   storage.DB().First(&myProduct, 1)
   fmt.Println(myProduct)
   ```
+
+## Update
+
+  ```go
+  driver := storage.Postgres
+  storage.New(driver)
+  
+  myProduct := model.Product{}
+  myProduct.ID = 3
+  
+  storage.DB().Model(&myProduct).Updates(
+    model.Product{Name: "Curso de Java", Price: 120},
+  )
+  ```
